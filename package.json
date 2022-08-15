@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .ts . --fix",
-    "format": "npm run lint && npm run prettier",
+    "format": "npm run prettier  && npm run lint",
+    "prettier": "prettier --config .prettierrc --ignore-path .gitignore  --write './src/**/*.+(js|ts)'",
     "dev": "npm run tsc && nodemon --files ./src/index.ts",
     "prod": "npm run tsc && NODE_ENV=production nodemon ./dist/app.js",
     "tsc": "tsc"
@@ -26,8 +27,10 @@
     "@typescript-eslint/parser": "^5.33.0",
     "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
