@@ -5,12 +5,12 @@ dotenv.config();
 
 const {
   NODE_ENV,
-  Database,
-  User,
-  Host,
+  DATABASE,
+  USER,
+  HOST,
   DATABASE_PORT,
   POSTGRES_TEST_DB,
-  Password,
+  PASSWORD,
   DATABASE_URL,
 } = process.env;
 
@@ -25,18 +25,18 @@ if (NODE_ENV === 'production') {
   });
 } else if (NODE_ENV === 'development') {
   client = new Pool({
-    host: Host,
-    user: User,
-    database: Database,
-    password: Password,
+    host: HOST,
+    user: USER,
+    database: DATABASE,
+    password: PASSWORD,
     port: parseInt(DATABASE_PORT as string, 10),
   });
 } else {
   client = new Pool({
-    host: Host,
-    user: User,
+    host: HOST,
+    user: USER,
     database: POSTGRES_TEST_DB,
-    password: Password,
+    password: PASSWORD,
     port: parseInt(DATABASE_PORT as string, 10),
   });
 }
@@ -44,10 +44,10 @@ if (NODE_ENV === 'production') {
 // Listen for server connections
 export default {
   client,
-  Database,
-  User,
-  Host,
+  DATABASE,
+  USER,
+  HOST,
   DATABASE_PORT,
   POSTGRES_TEST_DB,
-  Password,
+  PASSWORD,
 };
