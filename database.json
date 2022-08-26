@@ -6,17 +6,18 @@
     "user": "admin",
     "password": "adminpassword"
   },
-  
+  "production":{
+    "driver": "pg",
+    "native":"true"
+  },
+
   "test": {
     "driver": "pg",
     "host": "127.0.0.1",
     "database": "journal_test",
     "user": "admin",
     "password": "adminpassword"
-  },
-
-  "production":{
-    "driver": "pg",
-    "native":"true"
   }
+
+ 
 }
